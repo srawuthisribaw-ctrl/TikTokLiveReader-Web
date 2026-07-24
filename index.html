@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Live Reader Thai - โปรแกรมอ่านแชทสด TikTok ภาษาไทยอันดับ #1</title>
+    <meta name="description" content="TikTok Live Reader Thai โปรแกรมอ่านคอมเมนต์ ของขวัญ และผู้ติดตามสำหรับสตรีมเมอร์ TikTok พร้อมซาวด์บอร์ด MP3 มินิเกม AI และรองรับคนตาบอด 100%">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=3.1.2_v6">
+</head>
+<body>
+    <!-- Background Glow Effect -->
+    <div class="bg-glow blob-1"></div>
+    <div class="bg-glow blob-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="brand">
+                <i class="fa-solid fa-microphone-lines brand-icon"></i>
+                <span class="brand-name">TikTok Live Reader <span class="badge-v">v3.1.2</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">ฟีเจอร์หลัก</a>
+                <a href="#soundboard">ซาวด์บอร์ด</a>
+                <a href="#demo">ทดลองฟังเสียงสด</a>
+                <a href="#pricing">ราคาโปรแกรม</a>
+                <a href="#accessibility">การเข้าถึง (Accessibility)</a>
+            </nav>
+            <a href="#download" class="btn btn-primary btn-nav"><i class="fa-solid fa-download"></i> ดาวน์โหลดเลย</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="pill-tag"><i class="fa-solid fa-bolt"></i> ซอฟต์แวร์สตรีมมิ่งที่ยอดนิยมที่สุดในปี 2026</div>
+                <h1 class="hero-title">ยกระดับไลฟ์สด TikTok ด้วย<span class="gradient-text">เสียงอ่านภาษาไทยเรียลไทม์</span></h1>
+                <p class="hero-description">
+                    โปรแกรมช่วยอ่านคอมเมนต์ ขอบคุณของขวัญ แจ้งเตือนผู้ติดตาม ซาวด์บอร์ด MP3 ตั้งคีย์ลัดเอง มินิเกมสะสมแต้ม และรองรับผู้พิการทางสายตา (Screen Reader NVDA/JAWS) 100%
+                </p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary btn-lg"><i class="fa-solid fa-cloud-arrow-down"></i> ดาวน์โหลดทดลองใช้ฟรี</a>
+                    <a href="#demo" class="btn btn-secondary btn-lg"><i class="fa-solid fa-play"></i> ลองทดสอบระบบอ่านแชท</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">รองรับ Screen Reader</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">.MP3</span>
+                        <span class="stat-label">ซาวด์บอร์ดคีย์ลัด A-Z</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0.1s</span>
+                        <span class="stat-label">อ่านสดเรียลไทม์</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Simulator Preview -->
+            <div class="hero-visual" id="demo">
+                <div class="glass-card demo-card">
+                    <div class="card-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="card-title"><i class="fa-solid fa-desktop"></i> ระบบจำลองการอ่านแชทสด (Interactive Demo)</div>
+                    </div>
+                    <div class="chat-box" id="chat-stream">
+                        <div class="chat-message msg-bot">
+                            <span class="user-badge">[ระบบ]</span> ยินดีต้อนรับสู่ TikTok Live Reader Thai! เลือกเสียงอ่านออนไลน์ และกดปุ่มทดสอบได้เลยค่ะ
+                        </div>
+                    </div>
+                    <div class="voice-selector-box">
+                        <label for="voice-select"><i class="fa-solid fa-microphone"></i> เลือกเสียงอ่านภาษาไทย:</label>
+                        <select id="voice-select" class="form-select">
+                            <option value="th-TH-PremwadeeNeural">👩 เสียงเปรมวดี (Edge Neural - ผู้หญิง)</option>
+                            <option value="th-TH-NiwatNeural">👨 เสียงนิวัฒน์ (Edge Neural - ผู้ชาย)</option>
+                            <option value="google_tts">🇹🇭 เสียง Google ภาษาไทย (Google TTS Online)</option>
+                            <option value="th-TH-AcharaNeural">👧 เสียงอัจฉรา (Edge Neural - สดใส)</option>
+                            <option value="preset_robot">🤖 เสียงหุ่นยนต์ / โรบอทตลก</option>
+                            <option value="preset_fast">⚡ เสียงอ่านด่วนสปีด X2</option>
+                        </select>
+                    </div>
+                    <div class="demo-controls">
+                        <button id="btn-demo-comment" class="btn btn-demo"><i class="fa-solid fa-comment"></i> สุ่มคอมเมนต์สด</button>
+                        <button id="btn-demo-gift" class="btn btn-demo btn-gift"><i class="fa-solid fa-gift"></i> สุ่มส่งของขวัญ</button>
+                        <button id="btn-demo-sfx" class="btn btn-demo btn-sfx"><i class="fa-solid fa-music"></i> เสียงตึ่งโป๊ะ (Alt+F5)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">ฟีเจอร์ที่ออกแบบมาเพื่อ <span class="gradient-text">สตรีมเมอร์ยุคใหม่</span></h2>
+                <p class="section-subtitle">ทุกฟีเจอร์ทำงานร่วมกันอย่างเสถียร ราบรื่น ไม่ดึงเครื่อง ช่วยเพิ่มความสนุกสนานให้ช่องแชทสดของคุณ</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon icon-cyan"><i class="fa-solid fa-volume-high"></i></div>
+                    <h3>ระบบอ่านเสียงสังเคราะห์ (TTS Engine)</h3>
+                    <p>รองรับเสียง Edge Neural (เปรมวดี/นิวัฒน์), Google ภาษาไทย, SAPI5, OneCore และเสียง PPA ตาทิพย์ ปรับความเร็ว ความดัง และสไตล์เสียงตลกได้</p>
+                </div>
+
+                <div class="glass-card feature-card" id="soundboard">
+                    <div class="feature-icon icon-pink"><i class="fa-solid fa-guitar"></i></div>
+                    <h3>ซาวด์บอร์ดเอฟเฟกต์ MP3 คีย์ลัด A-Z</h3>
+                    <p>เพิ่มไฟล์เสียงเอฟเฟกต์ .mp3, .wav ได้ไม่จำกัด กำหนดปุ่มคีย์ลัดตัวอักษร A-Z หรือ 0-9 บนแป้นพิมพ์ได้เอง และกด Esc เพื่อหยุดเสียงได้ทันที</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="feature-icon icon-purple"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>กรองคำหยาบคาย & อีโมจิ</h3>
+                    <p>คัดกรองคำหยาบในคอมเมนต์และชื่อโปรไฟล์สตรีมเมอร์อัตโนมัติ พร้อมระบบเปิด/ปิดการอ่านอักขระอีโมจิ เพื่อความปลอดภัยในการไลฟ์สด</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="feature-icon icon-amber"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>ระบบคำอวยพร & มินิเกมสะสมแต้ม</h3>
+                    <p>สุ่มคำอวยพรตลกเฮงๆ รวยๆ เมื่อผู้ชมส่งของขวัญ พร้อมระบบสะสมคะแนนแฟนคลับและคำสั่งเกมโชว์ในช่องแชทแบบโต้ตอบสด</p>
+                </div>
+
+                <div class="glass-card feature-card" id="accessibility">
+                    <div class="feature-icon icon-green"><i class="fa-solid fa-universal-access"></i></div>
+                    <h3>รองรับคนตาบอด 100% (Accessibility)</h3>
+                    <p>ออกแบบเฉพาะเพื่อผู้มีปัญหาสายตา รองรับโปรแกรมอ่านหน้าจอ NVDA, JAWS และระบบเสียงพูดแจ้งเตือนปุ่มคีย์ลัดทุกตำแหน่ง 100%</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="feature-icon icon-blue"><i class="fa-solid fa-robot"></i></div>
+                    <h3>AI Assistant ตอบแชทสดอัตโนมัติ</h3>
+                    <p>เชื่อมต่อระบบ Gemini AI ตอบคำถามผู้ชมและทักทายแชทสดอัตโนมัติเสมือนมีผู้ช่วยส่วนตัวช่วยจัดรายการร่วมกับคุณ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shortcuts Matrix -->
+    <section class="shortcuts-section">
+        <div class="container">
+            <div class="glass-card shortcuts-card">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-keyboard"></i> ควบคุมง่ายผ่านปุ่มคีย์ลัดด่วน (Global Hotkeys)</h2>
+                    <p>ควบคุมการอ่านเสียงและเล่นเอฟเฟกต์ได้โดยไม่ต้องสลับหน้าต่างโปรแกรม</p>
+                </div>
+                <div class="key-grid">
+                    <div class="key-item"><kbd>F1</kbd> <span>อ่านสถานะเชื่อมต่อ</span></div>
+                    <div class="key-item"><kbd>F2</kbd> <span>เริ่มเชื่อมต่อห้องสด</span></div>
+                    <div class="key-item"><kbd>F3</kbd> <span>หยุดการเชื่อมต่อ</span></div>
+                    <div class="key-item"><kbd>F4</kbd> <span>สลับอ่านแชทคอมเมนต์</span></div>
+                    <div class="key-item"><kbd>F5</kbd> <span>สลับอ่านคนเข้าห้อง</span></div>
+                    <div class="key-item"><kbd>F6</kbd> <span>สลับปิด/เปิดเสียงพูดด่วน (Mute)</span></div>
+                    <div class="key-item"><kbd>A - Z</kbd> <span>เล่นซาวด์บอร์ดคีย์ลัดที่ตั้งไว้</span></div>
+                    <div class="key-item"><kbd>Esc</kbd> <span>หยุดเล่นเสียงเอฟเฟกต์ทันที</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">เลือกแพ็กเกจที่ <span class="gradient-text">คุ้มค่าสำหรับคุณ</span></h2>
+                <p class="section-subtitle">ไม่มีค่าบริการแอบแฝง อัปเดตฟรี และดูแลซัพพอร์ตตลอดการใช้งาน</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Trial Plan -->
+                <div class="glass-card pricing-card">
+                    <div class="plan-header">
+                        <h3>ทดลองใช้ฟรี</h3>
+                        <p>สำหรับทดลองใช้งานเบื้องต้น</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="amount">0</span> <span class="currency">บาท</span>
+                        <span class="period">/ 7 วัน</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> อ่านแชทสดเรียลไทม์</li>
+                        <li><i class="fa-solid fa-check"></i> เสียงอ่านมาตรฐาน Google TH</li>
+                        <li><i class="fa-solid fa-check"></i> ซาวด์บอร์ดเอฟเฟกต์เบื้องต้น</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> เสียงอ่าน Edge Neural / SAPI5</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> ระบบคำอวยพร & มินิเกม</li>
+                    </ul>
+                    <a href="#download" class="btn btn-secondary btn-block">ทดลองใช้ฟรี</a>
+                </div>
+
+                <!-- Monthly Plan -->
+                <div class="glass-card pricing-card">
+                    <div class="plan-header">
+                        <h3>รายเดือน (Monthly)</h3>
+                        <p>สำหรับสตรีมเมอร์ทดลองจัดรายการ</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="amount">99</span> <span class="currency">บาท</span>
+                        <span class="period">/ เดือน</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ครบทุกฟีเจอร์ในโปรแกรม 100%</li>
+                        <li><i class="fa-solid fa-check"></i> เสียงอ่าน Edge Neural / NVDA / SAPI5</li>
+                        <li><i class="fa-solid fa-check"></i> ซาวด์บอร์ด MP3 ตั้งคีย์ลัดเอง A-Z</li>
+                        <li><i class="fa-solid fa-check"></i> ระบบคำอวยพร มินิเกม & AI</li>
+                        <li><i class="fa-solid fa-check"></i> อัปเดตฟีเจอร์ใหม่ฟรีตลอดอายุ</li>
+                    </ul>
+                    <a href="#download" class="btn btn-secondary btn-block">สมัครรายเดือน</a>
+                </div>
+
+                <!-- Lifetime Plan (Featured) -->
+                <div class="glass-card pricing-card featured-plan">
+                    <div class="popular-badge">คุ้มค่าที่สุด ⭐</div>
+                    <div class="plan-header">
+                        <h3>ซื้อขาดถาวร (Lifetime)</h3>
+                        <p>จ่ายครั้งเดียว ใช้งานได้ตลอดชีพ</p>
+                    </div>
+                    <div class="plan-price">
+                        <span class="amount">500</span> <span class="currency">บาท</span>
+                        <span class="period">/ ซื้อขาดถาวร</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> ปลดล็อกครบทุกฟีเจอร์ตลอดชีพ</li>
+                        <li><i class="fa-solid fa-check"></i> เสียงอ่าน Edge Neural / NVDA / SAPI5</li>
+                        <li><i class="fa-solid fa-check"></i> ซาวด์บอร์ด MP3 ตั้งคีย์ลัดเอง A-Z</li>
+                        <li><i class="fa-solid fa-check"></i> ระบบคำอวยพร มินิเกม & AI</li>
+                        <li><i class="fa-solid fa-check"></i> สิทธิ์ย้ายรหัสเครื่องฟรีเมื่อเปลี่ยนคอม</li>
+                        <li><i class="fa-solid fa-check"></i> ดูแลและช่วยเหลือส่วนตัว 24 ชั่วโมง</li>
+                    </ul>
+                    <a href="#download" class="btn btn-primary btn-block">สั่งซื้อสิทธิ์ถาวร (500.-)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section" id="download">
+        <div class="container">
+            <div class="glass-card download-box text-center">
+                <h2><i class="fa-solid fa-box-archive"></i> เริ่มต้นใช้งาน TikTok Live Reader Thai วันนี้</h2>
+                <p>ดาวน์โหลดไฟล์โปรแกรมเวอร์ชันล่าสุด v3.1.2 พร้อมเปิดใช้งานได้ทันทีบน Windows 10 / 11</p>
+                <div class="download-actions">
+                    <a href="https://github.com/srawuthisribaw-ctrl/TikTokLiveReaderThai/raw/main/dist/TikTokLiveReaderThai_v3.1.2.zip" class="btn btn-primary btn-lg"><i class="fa-solid fa-download"></i> ดาวน์โหลดเวอร์ชัน v3.1.2 (.ZIP)</a>
+                </div>
+                <div class="installation-steps">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <p>ดาวน์โหลดและแตกไฟล์ .ZIP</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <p>เปิดโปรแกรม คัดลอกรหัสเครื่อง (Machine ID)</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <p>ส่งรหัสเครื่องเพื่อรับ Activation Key เปิดใช้งาน</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>© 2026 sarawoot sribaw. All rights reserved. TikTok Live Reader Thai Version 3.1.2</p>
+            <p class="footer-sub">พัฒนาด้วยความใส่ใจเพื่อสตรีมเมอร์ไทยทุกคนและผู้พิการทางสายตา 100%</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3.1.2_v6"></script>
+</body>
+</html>
